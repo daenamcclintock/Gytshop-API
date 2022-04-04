@@ -4,7 +4,7 @@ const Product = require('./product')
 const db = require('../../config/db')
 
 const startProducts = [
-    { name: 'Mac-book Pro 2020', price: 1099, description: 'Brand new 2020 Mac book', category: 'electronics', stock: 5, image:'https://www.backmarket.com/cdn-cgi/image/format=auto,quality=75,width=640/https://d28i4xct2kl5lp.cloudfront.net/product_images/None_41c5fc19-5524-410f-a0d5-29503ed78651.jpg', owner:"6248a4487bd5d5ed9504b988" },
+    { name: 'MacBook Pro 2020', price: 1099, description: 'Brand new 2020 Mac book', category: 'electronics', stock: 5, image:'https://www.backmarket.com/cdn-cgi/image/format=auto,quality=75,width=640/https://d28i4xct2kl5lp.cloudfront.net/product_images/None_41c5fc19-5524-410f-a0d5-29503ed78651.jpg', owner:"6248a4487bd5d5ed9504b988" },
     { name: 'CryptoPunks', price: 500, description: 'Buy a random NFT card', category: 'collectibles', stock:20, image:'https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2021/12/cryptopunks-4156-nft-gID_7.png', owner:"6248a4487bd5d5ed9504b988"},
     { name: 'Levi\'s Blue Jeans', price: 50, description: 'Blue jeans for everyday styling', category: 'clothing', stock:13, image:'https://i.pinimg.com/originals/e3/5e/37/e35e37b89a0793dc8beb58e162dea697.jpg', owner:"6248a4487bd5d5ed9504b988"},
     { name: 'Levi\'s Black Jeans', price: 50, description: 'Black jeans for everyday styling', category: 'clothing', stock:12, image: 'https://i.pinimg.com/originals/c7/ee/88/c7ee881348717661775f77f511a45a6e.jpg', owner:"6248a4487bd5d5ed9504b988"},

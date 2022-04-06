@@ -151,7 +151,7 @@ router.patch('/orders/:id', requireToken, removeBlanks, (req, res, next) => {
 		.catch(next)
 })
 
-// DELETE one ITEM
+// DELETE one ITEM form car
 router.delete('/orders/:ownerId/:productId', requireToken, (req, res, next) => {
     const ownerid = req.params.ownerId
     const productid = req.params.productId
@@ -172,7 +172,7 @@ router.delete('/orders/:ownerId/:productId', requireToken, (req, res, next) => {
             return order.save()
 
 		})
-        
+        // yo fool
 		// send back 204 and no content if the deletion succeeded
 		.then(() => res.sendStatus(204))
 		// if an error occurs, pass it to the handler

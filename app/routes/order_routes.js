@@ -183,7 +183,11 @@ router.patch('/orders/:orderId/totalPrice', (req, res, next) => {
 
     Order.findById(orderid)
         .then( order => {
-            res.send(order)
+            console.log('Updated order with price: ', order)
+            console.log('req.body.order ', req.body.order)
+            order.totalPrice = req.body.order
+
+            return order.save()
         })
         .catch(next)
 })

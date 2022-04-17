@@ -8,7 +8,7 @@ const productRoutes = require('./app/routes/product_routes')
 const userRoutes = require('./app/routes/user_routes')
 const reviewRoutes = require('./app/routes/review_routes')
 const orderRoutes = require('./app/routes/order_routes')
-const stripe_routes = require('./app/routes/stripe_routes')
+const stripeRoutes = require('./app/routes/stripe_routes')
 
 // require middleware
 const errorHandler = require('./lib/error_handler')
@@ -82,29 +82,13 @@ app.use(productRoutes)
 app.use(userRoutes)
 app.use(reviewRoutes)
 app.use(orderRoutes)
-app.use(stripe_routes)
+app.use(stripeRoutes)
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
 // passed any error messages from them
 app.use(errorHandler)
 
-app.post('/create-checkout-session', async (req, res) => {
-	const session = await stripe.checkout.sessions.create({
-	  line_items: [
-		{
-		  // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-		  price: 999,
-		  quantity: 1,
-		},
-	  ],
-	  mode: 'payment',
-	  success_url: `http://localhost:${serverDevPort}?success=true`,
-	  cancel_url: `http://localhost:${serverDevPort}?canceled=true`,
-	});
-  
-	res.redirect(303, session.url);
-  });  
 
 // run API on designated port (4741 in this case)
 app.listen(port, () => {

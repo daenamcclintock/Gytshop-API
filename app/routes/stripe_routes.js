@@ -11,7 +11,7 @@ const removeBlanks = require('../../lib/remove_blank_fields')
 
 // Stripe Dependencies
 require("dotenv").config()
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
+const stripe = require("stripe")('sk_test_51KlisSJAF3e1vqKyLl7zRDSoXZEGqvzlkkmzSfSjw5r05HD91P7HOzYOtVuHShAGB3C3mUIx5chnkrz6EzngO9dY00myKBu9nc')
 const cors = require("cors")
 
 // instantiate a router (mini app that only handles routes)

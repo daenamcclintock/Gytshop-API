@@ -224,20 +224,6 @@ router.get('/orders/:ownerId/payment', requireToken, (req,res,next) => {
     .catch(next)
 })
 
-// GET Route to show the orders in confirmation page after checking out 
-router.get('/orders/:ownerId/confirmation', requireToken, (req,res,next) => {
-    const ownerid = req.params.ownerId
-    Order.findOne({owner: ownerid})
-    .populate('productsOrdered')
-    .then( order => {
-        const productsInCart = order.productsOrdered
-        return productsInCart
-    })
-    // if an error occurs, pass it to the handler
-    .then(orders => res.status(200).json({orders:orders}))
-    .catch(next)
-})
-
 // UPDATE -> PATCH /products/5a7db6c74d55bc51bdf39793 -This will allow users to edit their product
 router.patch('/products/:id/edit', requireToken, removeBlanks, (req, res, next) => {
 	// if the client attempts to change the `owner` property by including a new

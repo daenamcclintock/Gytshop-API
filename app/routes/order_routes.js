@@ -60,7 +60,7 @@ router.get('/orders/:ownerId', requireToken, (req,res,next) => {
         .catch(next)
 })
 
-//INDEX Route to show the orders in the My Orders page
+//INDEX Route get items in cart, send to checkout page
 router.get('/orders/:userId', requireToken, (req,res,next) => {
     Order.findById(req.params.id)
         //this will populate items in the users current cart
@@ -71,8 +71,8 @@ router.get('/orders/:userId', requireToken, (req,res,next) => {
 })
 
 //GET Route to show the orders in confirmation page after checking out 
-router.get('/orders/:ownerId/confirmation', requireToken, (req,res,next) => {
-    const ownerid = req.params.ownerId
+router.get('/orders/:userId/confirmation', requireToken, (req,res,next) => {
+    const ownerid = req.params.userId
     Order.findOne({owner: ownerid})
     .populate('productsOrdered')
     .then( order => {
